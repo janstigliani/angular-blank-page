@@ -12,17 +12,25 @@ export class NoteService {
 
   constructor() {
     effect(() => {
+      console.log(this.notesArray());
       const currentNote = this.courrentNote();
       if (currentNote) {
-        currentNote.desc = this.noteDescription();
+        // Only update the description if the current note is explicitly being edited
+        if (currentNote.desc !== this.noteDescription()) {
+          currentNote.desc = this.noteDescription();
+        }
       }
     });
   }
 
-  createnewNote() {
+  createNewNote() {
+
+    if (this.courrentNote()) {
+      this.courrentNote()!.isSelected = false;
+    }
 
     let id: number;
-    if (this.notesArray.length === 0) {
+    if (this.notesArray().length === 0) {
       id = 1;
     } else {
       const maxIdNote = Math.max(...this.notesArray().map((note: Note) => note.id));
@@ -31,16 +39,20 @@ export class NoteService {
 
     const date = this.getDateTime();
 
-    const note:Note = {
+    const note: Note = {
       id: id,
       creationDate: date,
-      desc: this.noteDescription(),
-      isSelected: true, 
-    }
+      desc: "",
+      isSelected: true,
+    };
 
-    this.courrentNote.set(note)
-    this.saveNote()
-  };
+    note.desc = this.noteDescription();
+    this.courrentNote.set(note);
+    this.saveNote();
+
+    // Reset the note description for the next note
+    this.noteDescription.set("");
+  }
 
   getDateTime() {
     const date = new Date();
@@ -59,7 +71,7 @@ export class NoteService {
 
   saveNote() {
 
-    localStorage.clear()
+    // localStorage.clear()
  
     this.notesArray.update(oldArray => {
       const modifiedArary = oldArray.filter(note => note.id !== this.courrentNote()!.id);
