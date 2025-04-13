@@ -1,7 +1,7 @@
 export interface Note {
     id: number;
-    creationDate: Date;
-    lastModify?: Date;
+    creationDate: string;
+    lastModify?: string;
     desc: string;
     isSelected: boolean; 
 }

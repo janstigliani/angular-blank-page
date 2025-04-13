@@ -1,5 +1,5 @@
-import { Component, effect, signal, SimpleChanges } from '@angular/core';
-import { timeout } from 'rxjs';
+import { Component, inject,} from '@angular/core';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'app-editor',
@@ -8,14 +8,20 @@ import { timeout } from 'rxjs';
   styleUrl: './editor.component.scss'
 })
 export class EditorComponent {
-  desc = signal("");
+  service = inject(NoteService);
+
+  constructor() {
+    setInterval(() => {
+      this.service.saveNote()
+    }, 4000);
+  }
 
   ngOnInit() {
     const editor = document.getElementById("editor");
 
     if (editor) {
       editor.addEventListener("input", () => {
-        this.desc.set(editor.innerHTML);
+        this.service.noteDescription.set(editor.innerHTML);
       });
     }
   }
