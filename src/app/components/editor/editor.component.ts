@@ -1,4 +1,4 @@
-import { Component, inject,} from '@angular/core';
+import { Component, effect, inject,} from '@angular/core';
 import { NoteService } from '../../services/note.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class EditorComponent {
     setInterval(() => {
       this.service.saveNote()
     }, 4000);
+
   }
 
   ngOnInit() {
@@ -22,6 +23,11 @@ export class EditorComponent {
     if (editor) {
       editor.addEventListener("input", () => {
         this.service.noteDescription.set(editor.innerHTML);
+        // effect(() => {
+        //   if (this.service.noteDescription() === "") {
+        //     editor.innerHTML = "";
+        //   }
+        // })
       });
     }
   }

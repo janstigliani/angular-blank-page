@@ -42,15 +42,13 @@ export class NoteService {
     const note: Note = {
       id: id,
       creationDate: date,
-      desc: "",
+      desc: this.noteDescription(),
       isSelected: true,
     };
 
-    note.desc = this.noteDescription();
     this.courrentNote.set(note);
     this.saveNote();
 
-    // Reset the note description for the next note
     this.noteDescription.set("");
   }
 
