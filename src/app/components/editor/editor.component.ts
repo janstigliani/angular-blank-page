@@ -14,7 +14,6 @@ export class EditorComponent {
     setInterval(() => {
       this.service.saveNote()
     }, 4000);
-
   }
 
   ngOnInit() {
@@ -29,6 +28,11 @@ export class EditorComponent {
         //   }
         // })
       });
+
+      // effect(() => {
+      //   if(this.service.courrentNote()?.isSelected === false){
+      //     editor.innerHTML = "";
+      //   }})
     }
   }
 }
