@@ -14,6 +14,13 @@ export class EditorComponent {
     setInterval(() => {
       this.service.saveNote()
     }, 4000);
+
+    effect(() => {
+          if (this.service.noteDescription() === "") {
+            const editor = document.getElementById("editor");
+            editor!.innerText = "";
+          }
+        })
   }
 
   ngOnInit() {
@@ -21,18 +28,8 @@ export class EditorComponent {
 
     if (editor) {
       editor.addEventListener("input", () => {
-        this.service.noteDescription.set(editor.innerHTML);
-        // effect(() => {
-        //   if (this.service.noteDescription() === "") {
-        //     editor.innerHTML = "";
-        //   }
-        // })
+        this.service.noteDescription.set(editor.innerText);
       });
-
-      // effect(() => {
-      //   if(this.service.courrentNote()?.isSelected === false){
-      //     editor.innerHTML = "";
-      //   }})
     }
   }
 }
