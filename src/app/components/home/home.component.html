@@ -1,6 +1,8 @@
-<div style="border: black 1px solid; margin: 10px; width: 300px; overflow: hidden;" *ngFor=" let note of service.notesArray()">
-    <div> {{note.desc}} </div>
-    <div> {{note.creationDate}}</div>
+<div class="box-notes">
+    <app-note-box (click)="service.selectNote()" class="note" *ngFor=" let note of service.notesArray()"
+    [desc]="note.desc"
+    [creation-date]="note.creationDate"
+    ></app-note-box>
 </div>
 <app-editor></app-editor>
 <button (click)="service.createNewNote()">+</button>

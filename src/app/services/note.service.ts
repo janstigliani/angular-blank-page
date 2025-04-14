@@ -92,4 +92,9 @@ export class NoteService {
       localStorage.setItem("notes", JSON.stringify(this.notesArray()));
     }
   }
+
+  selectNote() {
+    
+    ;
+  }
 }
