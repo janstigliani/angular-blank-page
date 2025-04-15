@@ -1,4 +1,4 @@
-import { Component, effect, inject,} from '@angular/core';
+import { Component, effect, inject, } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 
 @Component({
@@ -16,11 +16,18 @@ export class EditorComponent {
     }, 4000);
 
     effect(() => {
-          if (this.service.noteDescription() === "") {
-            const editor = document.getElementById("editor");
-            editor!.innerText = "";
-          }
-        })
+      if (this.service.noteDescription() === "") {
+        const editor = document.getElementById("editor");
+        editor!.innerText = "";
+      }
+    });
+
+    // effect(() => {
+    //   if (this.service.courrentNote()?.isSelected === false) {
+    //     const editor = document.getElementById("editor");
+    //     editor!.innerText = this.service.courrentNote()!.desc;
+    //   }
+    // });
   }
 
   ngOnInit() {

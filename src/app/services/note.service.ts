@@ -70,7 +70,7 @@ export class NoteService {
   saveNote() {
 
     // localStorage.clear()
- 
+
     this.notesArray.update(oldArray => {
       const modifiedArary = oldArray.filter(note => note.id !== this.courrentNote()!.id);
       const currentNote = this.courrentNote();
@@ -93,11 +93,14 @@ export class NoteService {
     }
   }
 
-  selectNote(id:number) {
+  selectNote(id: number) {
     this.notesArray().map((note) => note.isSelected = false);
     const selectedNote = this.notesArray().find((note) => note.id = id);
     if (selectedNote) {
       selectedNote.isSelected = true;
+      this.courrentNote.set(selectedNote);
+      console.log("l'id della nota selezionata è: ", this.courrentNote()!.id)
     }
   }
+ 
 }
