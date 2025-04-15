@@ -93,8 +93,11 @@ export class NoteService {
     }
   }
 
-  selectNote() {
-    
-    ;
+  selectNote(id:number) {
+    this.notesArray().map((note) => note.isSelected = false);
+    const selectedNote = this.notesArray().find((note) => note.id = id);
+    if (selectedNote) {
+      selectedNote.isSelected = true;
+    }
   }
 }

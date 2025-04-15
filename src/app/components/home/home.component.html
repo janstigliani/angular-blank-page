@@ -1,5 +1,5 @@
 <div class="box-notes">
-    <app-note-box (click)="service.selectNote()" class="note" *ngFor=" let note of service.notesArray()"
+    <app-note-box (click)="service.selectNote(note.id)" class="note" *ngFor=" let note of service.notesArray()"
     [desc]="note.desc"
     [creation-date]="note.creationDate"
     ></app-note-box>
