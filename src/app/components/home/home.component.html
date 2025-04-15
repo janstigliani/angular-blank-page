@@ -1,7 +1,7 @@
 <div class="box-notes">
     <app-note-box (click)="service.selectNote(note.id)" class="note" *ngFor=" let note of service.notesArray()"
     [desc]="note.desc"
-    [creation-date]="note.creationDate"
+    [creation-date]="note.lastModify ? note.lastModify : note.creationDate"
     ></app-note-box>
 </div>
 <app-editor></app-editor>

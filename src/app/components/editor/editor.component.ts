@@ -16,18 +16,14 @@ export class EditorComponent {
     }, 4000);
 
     effect(() => {
-      if (this.service.noteDescription() === "") {
-        const editor = document.getElementById("editor");
-        editor!.innerText = "";
+      const editor = document.getElementById("editor");
+      if (this.service.noteDescription() !== editor?.innerText) {
+        console.log("testo editor", editor!.innerText)
+        console.log("testo nota", this.service.courrentNote()!.desc)
+        editor!.innerText = this.service.courrentNote()!.desc;
       }
     });
 
-    // effect(() => {
-    //   if (this.service.courrentNote()?.isSelected === false) {
-    //     const editor = document.getElementById("editor");
-    //     editor!.innerText = this.service.courrentNote()!.desc;
-    //   }
-    // });
   }
 
   ngOnInit() {
@@ -38,5 +34,9 @@ export class EditorComponent {
         this.service.noteDescription.set(editor.innerText);
       });
     }
+  }
+
+  ngOnDestroy() {
+    this.service.saveNote();
   }
 }

@@ -12,7 +12,6 @@ export class NoteService {
 
   constructor() {
     effect(() => {
-      console.log(this.notesArray());
       const currentNote = this.courrentNote();
       if (currentNote) {
         // Only update the description if the current note is explicitly being edited
@@ -70,12 +69,13 @@ export class NoteService {
   saveNote() {
 
     // localStorage.clear()
-
     this.notesArray.update(oldArray => {
-      const modifiedArary = oldArray.filter(note => note.id !== this.courrentNote()!.id);
+      const modifiedArray = oldArray.filter(note => note.id !== this.courrentNote()!.id);
       const currentNote = this.courrentNote();
       if (currentNote) {
-        return [...modifiedArary, currentNote];
+        const dateModify = this.getDateTime();
+        currentNote.lastModify = dateModify;
+        return [currentNote, ...modifiedArray];
       }
       return oldArray;
     });
@@ -95,11 +95,11 @@ export class NoteService {
 
   selectNote(id: number) {
     this.notesArray().map((note) => note.isSelected = false);
-    const selectedNote = this.notesArray().find((note) => note.id = id);
+    const selectedNote = this.notesArray().find((note) => note.id === id);
     if (selectedNote) {
       selectedNote.isSelected = true;
       this.courrentNote.set(selectedNote);
-      console.log("l'id della nota selezionata è: ", this.courrentNote()!.id)
+      this.noteDescription.set(this.courrentNote()!.desc)
     }
   }
  
