@@ -19,6 +19,8 @@ export class HomeComponent {
     this.service.getnotes();
     if (this.service.notesArray().length === 0) {
       this.service.createNewNote()
+    } else {
+      this.service.notesArray().find(note => (note.lastModify? note.lastModify : note.creationDate) ) 
     }
   }
 }
