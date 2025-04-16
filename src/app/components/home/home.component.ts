@@ -3,10 +3,12 @@ import { EditorComponent } from '../editor/editor.component';
 import { NoteService } from '../../services/note.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NoteBoxComponent } from "../note-box/note-box.component";
+import { CountersComponent } from "../counters/counters.component";
+import { NavComponent } from "../nav/nav.component";
 
 @Component({
   selector: 'app-home',
-  imports: [EditorComponent, CommonModule, NoteBoxComponent],
+  imports: [EditorComponent, CommonModule, NoteBoxComponent, CountersComponent, NavComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

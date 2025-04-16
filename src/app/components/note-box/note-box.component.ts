@@ -1,4 +1,5 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
+import { NoteService } from '../../services/note.service';
 
 @Component({
   selector: 'app-note-box',
@@ -8,8 +9,11 @@ import { Component, input, signal } from '@angular/core';
 })
 export class NoteBoxComponent {
 
+  service = inject(NoteService);
+
   date = input("", { alias: "creation-date" });
   desc = input(undefined, { transform: (value: string) => this.createTitle(value) });
+  id = input(0);
 
   createTitle(value: string): string | undefined {
     if (value) {

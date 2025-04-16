@@ -9,6 +9,7 @@ export class NoteService {
   noteDescription = signal("");
   courrentNote = signal<Note | undefined>(undefined);
   notesArray = signal<Note[]>([]);
+  darkMode = signal(false);
 
   constructor() {
     effect(() => {
@@ -101,6 +102,33 @@ export class NoteService {
       this.courrentNote.set(selectedNote);
       this.noteDescription.set(this.courrentNote()!.desc)
     }
+  }
+
+  deleteNote(id:number) {
+      const array = this.notesArray().filter(note => note.id !== id);
+      this.notesArray.set(array);
+      this.saveNote();
+  }
+
+  wordsCount() {
+    if (this.noteDescription() === "") {
+      return 0;
+    }
+    return this.noteDescription().split(" ").length;
+  }
+
+  charCount() {
+    // let counter = 0;
+    // let wordsArray = this.noteDescription().split(" ");
+    // for (const word of wordsArray) {
+    //   counter += word.length;
+    // }
+    // return counter;
+    return this.noteDescription().length;
+  }
+
+  notesCount() {
+    return this.notesArray().length;
   }
  
 }

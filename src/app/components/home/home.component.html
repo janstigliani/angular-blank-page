@@ -1,9 +1,10 @@
+<app-nav></app-nav>
 <div class="box-notes">
     <app-note-box (click)="service.selectNote(note.id)" class="note" *ngFor=" let note of service.notesArray()"
     [desc]="note.desc"
     [creation-date]="note.lastModify ? note.lastModify : note.creationDate"
+    [id]="note.id"
     ></app-note-box>
 </div>
 <app-editor></app-editor>
-<button (click)="service.createNewNote()">+</button>
-
+<app-counters></app-counters>
