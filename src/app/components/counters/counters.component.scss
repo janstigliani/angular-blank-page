@@ -1,0 +1,11 @@
+
+.note-counter, .char-counter, .words-counter{
+    font-size: 1.3rem;
+}
+
+.counter-container{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 25%;
+}

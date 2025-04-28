@@ -1,6 +1,8 @@
-<p>{{desc()}}</p>
-<p>{{date()}}</p>
-<button (click)="service.deleteNote(id())">-</button>
+<div class="separator">
+    <p>{{desc()}}</p>
+    <p>{{date()}}</p>
+    <mat-icon (click)="service.deleteNote(id())">delete</mat-icon>
+</div>
 
 
 

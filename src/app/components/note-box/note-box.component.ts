@@ -1,9 +1,10 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { NoteService } from '../../services/note.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-note-box',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './note-box.component.html',
   styleUrl: './note-box.component.scss'
 })
