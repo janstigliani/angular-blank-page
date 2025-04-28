@@ -1,0 +1,45 @@
+.main-container1 {
+    display: flex;
+    justify-content: space-around;
+    height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: rgba(57, 165, 142, 0.247);
+}
+
+.main-container2 {
+    display: flex;
+    justify-content: space-around;
+    height: calc(100vh - 60px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background-color: rgba(33, 71, 63, 0.726);
+}
+
+.box-notes, .counter-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-container{
+    justify-self: center;
+    width: 60%;
+}
+
+.box-notes{
+    max-width: 25%;
+}
+
+.notes-container{
+    align-self: flex-start;
+    height: 300px;
+    max-width: 100%;
+    overflow-y: auto;
+    overflow-x:auto;
+    word-break: break-all;
+}
+

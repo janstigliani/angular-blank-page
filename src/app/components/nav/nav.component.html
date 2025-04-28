@@ -1,6 +1,27 @@
-<div>
-    <button (click)="service.createNewNote()">+</button>
-    <button (click)="service.darkMode.set(!service.darkMode())">dark mode</button>
+
+<mat-toolbar>
+    <h1>Listless Writing</h1>
+    <span class="example-spacer"></span>
+
+    <button (click)="service.createNewNote()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>download</mat-icon>
+      </button>
+
+      <button (click)="service.darkMode.set(!service.darkMode())" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>contrast</mat-icon>
+      </button>
+  </mat-toolbar>
+
+
+    <!-- <a 
+     href="/file.txt"
+    class="btn"
+    target="_blank"
+    download="file.txt"
+    >
     <button>download</button>
-    <button>tendina</button>
-</div>
+    </a> -->

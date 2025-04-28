@@ -104,10 +104,10 @@ export class NoteService {
     }
   }
 
-  deleteNote(id:number) {
-      const array = this.notesArray().filter(note => note.id !== id);
-      this.notesArray.set(array);
-      this.saveNote();
+  deleteNote(id: number) {
+    const array = this.notesArray().filter(note => note.id !== id);
+    this.notesArray.set(array);
+    this.saveNote();
   }
 
   wordsCount() {
@@ -130,5 +130,11 @@ export class NoteService {
   notesCount() {
     return this.notesArray().length;
   }
- 
+
+  // createNewTxtFile() {
+  //   fs.writeFile(`file.txt`, `${this.courrentNote()?.desc}.txt`, function (err) {
+  //     if (err) throw err;
+  //     console.log('File is created successfully.');
+  //   }); 
+  // }
 }
