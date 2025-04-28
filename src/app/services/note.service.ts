@@ -137,4 +137,30 @@ export class NoteService {
   //     console.log('File is created successfully.');
   //   }); 
   // }
+
+  downloadCurrentNoteAsTxt() {
+    const currentNote = this.courrentNote();
+    if (!currentNote) {
+      alert("No note selected to download.");
+      return;
+    }
+  
+    const noteContent = currentNote.desc;
+    const noteTitle = `Note_${currentNote.id}.txt`;
+  
+    // Create a Blob with the note content
+    const blob = new Blob([noteContent], { type: 'text/plain' });
+  
+    // Create a temporary anchor element to trigger the download
+    const anchor = document.createElement('a');
+    anchor.href = URL.createObjectURL(blob);
+    anchor.download = noteTitle;
+  
+    // Append the anchor to the body, trigger the download, and remove it
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+  
+    console.log(`Downloaded: ${noteTitle}`);
+  }
 }
