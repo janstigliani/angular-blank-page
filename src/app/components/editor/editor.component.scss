@@ -6,3 +6,7 @@
     padding: 8px;
     box-shadow: 2px 4px 15px 2px #2a102b84;
 }
+
+[contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-text)
+  }
