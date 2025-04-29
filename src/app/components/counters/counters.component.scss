@@ -1,11 +1,24 @@
-
-.note-counter, .char-counter, .words-counter{
+.note-counter,
+.char-counter,
+.words-counter {
     font-size: 1.3rem;
 }
 
-.counter-container{
+.counter-container {
     display: flex;
     flex-direction: column;
     gap: 30px;
     max-width: 25%;
+}
+
+@media screen and (max-width: 768px) {
+    .counter-container {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+    }
 }

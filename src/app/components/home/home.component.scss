@@ -1,23 +1,25 @@
 .main-container1 {
     display: flex;
     justify-content: space-around;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 64px);
     width: 100%;
     display: flex;
     align-items: center;
     gap: 4px;
     background-color: rgba(57, 165, 142, 0.247);
+    flex-wrap: wrap;
 }
 
 .main-container2 {
     display: flex;
     justify-content: space-around;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 64px);
     width: 100%;
     display: flex;
     align-items: center;
     gap: 4px;
     background-color: rgba(15, 98, 104, 0.694);
+    flex-wrap: wrap;
 }
 
 .box-notes, .counter-container{
@@ -28,10 +30,12 @@
 .editor-container{
     justify-self: center;
     width: 60%;
+    min-width: 300px;
 }
 
 .box-notes{
     max-width: 25%;
+    min-width: 300px;
 }
 
 .notes-container{
@@ -43,3 +47,16 @@
     word-break: break-all;
 }
 
+@media screen and (max-width: 768px) {
+    .notes-container {
+        height: 180px;
+    }
+
+    .editor-container{
+        justify-self: center;
+        width: 90%;
+        min-width: 300px;
+        min-height: 400px;
+
+    }
+}

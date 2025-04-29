@@ -10,3 +10,10 @@
 [contentEditable=true]:empty:not(:focus):before {
     content: attr(data-text)
   }
+
+  @media screen and (max-width: 768px) {
+
+    .editor{
+        height: 400px;
+    }
+}
