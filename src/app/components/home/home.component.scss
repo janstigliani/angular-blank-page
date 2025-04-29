@@ -57,6 +57,14 @@
         width: 90%;
         min-width: 300px;
         min-height: 400px;
-
     }
+
+    .main-container1 {
+        height: calc(100vh - 56px);
+    }
+    
+    .main-container2 {
+        height: calc(100vh - 56px);
+    }
+    
 }

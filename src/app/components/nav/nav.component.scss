@@ -18,3 +18,9 @@
   font-size: 2rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+  .title {
+      font-size: 1.3rem;
+  }
+}

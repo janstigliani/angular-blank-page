@@ -18,8 +18,6 @@ export class EditorComponent {
     effect(() => {
       const editor = document.getElementById("editor");
       if (this.service.noteDescription() !== editor?.innerText) {
-        console.log("testo editor", editor!.innerText)
-        console.log("testo nota", this.service.courrentNote()!.desc)
         editor!.innerText = this.service.courrentNote()!.desc;
       }
     });

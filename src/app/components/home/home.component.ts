@@ -14,6 +14,7 @@ import { NavComponent } from "../nav/nav.component";
 })
 export class HomeComponent {
   service = inject(NoteService);
+  isWriting = this.service.isWriting;
   brightMode = true;
 
   currentClasses = {

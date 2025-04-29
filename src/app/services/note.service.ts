@@ -10,14 +10,17 @@ export class NoteService {
   courrentNote = signal<Note | undefined>(undefined);
   notesArray = signal<Note[]>([]);
   darkMode = signal(false);
+  isWriting = signal(false);
 
   constructor() {
     effect(() => {
       const currentNote = this.courrentNote();
       if (currentNote) {
-        // Only update the description if the current note is explicitly being edited
         if (currentNote.desc !== this.noteDescription()) {
           currentNote.desc = this.noteDescription();
+          this.isWriting.set(true);
+        } else {
+          this.isWriting.set(false);
         }
       }
     });
