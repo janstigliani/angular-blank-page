@@ -18,10 +18,7 @@ export class NoteService {
       if (currentNote) {
         if (currentNote.desc !== this.noteDescription()) {
           currentNote.desc = this.noteDescription();
-          this.isWriting.set(true);
-        } else {
-          this.isWriting.set(false);
-        }
+        } 
       }
     });
   }

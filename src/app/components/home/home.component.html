@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div [ngClass]= "currentClasses">
+<div [ngClass]= "currentClasses" *ngIf="service.isWriting()">
     <div class="box-notes">
         <div class="notes-container">
             <app-note-box (click)="service.selectNote(note.id)" class="note" *ngFor=" let note of service.notesArray()"
@@ -10,7 +10,7 @@
     <div class="editor-container">
         <app-editor></app-editor>
     </div>
-    <div class="counter-container" >
+    <div class="counter-container" *ngIf="service.isWriting()">
         <app-counters></app-counters>
     </div>
 </div>
